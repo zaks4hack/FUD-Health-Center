@@ -1649,7 +1649,7 @@
       // nested under data.user, or a custom error object), the error
       // detection below (checking error.message / error.context) may
       // need adjusting to match.
-      const { data, error } = await supabase.functions.invoke("create-staff", {
+      const { data, error } = await supabase.functions.invoke("manage-staff", {
         body: { full_name: fullName, email, phone, password, role },
       });
 
@@ -1772,7 +1772,7 @@
       // Calls the `delete-staff` edge function (deployed separately with
       // the service role key) so this also removes the auth.users record,
       // not just the profiles row.
-      const { data, error } = await supabase.functions.invoke("delete-staff", {
+      const { data, error } = await supabase.functions.invoke("manage-staff", {
         body: { staff_id: staffId },
       });
 
